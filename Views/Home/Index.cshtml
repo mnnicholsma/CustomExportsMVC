@@ -1,0 +1,30 @@
+﻿@model CustomExports.Models.Client
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-left">
+    <h3>Home</h3>
+    <br />
+    <br />
+
+    <p>
+        Please select a client export.  Upon file export, the account totals, number of accounts, and time of export
+        will be logged.  Please see the application log for export history.
+        <br /><br />
+        The csv export file will use the delimter specified in the configuration table.
+    </p>
+
+    <form asp-controller="Home" asp-action="ExportFile" method="post">
+        @Html.AntiForgeryToken()
+        <div>
+            @Html.DropDownListFor(c => c.Id,
+                new SelectList(ViewBag.AllClients, "Id", "Name"))
+        </div>
+
+        <br />
+        <button type="submit">Export File</button>
+    </form>
+
+</div>

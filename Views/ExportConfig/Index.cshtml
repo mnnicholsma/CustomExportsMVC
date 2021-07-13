@@ -1,0 +1,86 @@
+﻿@model CustomExports.Models.ExportConfig
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3>Export Configurations</h3>
+<br />
+<br />
+
+<p>
+    Please use the sql editor to change the export type or delimter.
+</p>
+<table class="table table-sm row_header_table">
+    <tbody id="TableHeader">
+    <tbody>
+        <tr>
+            <td>
+                <div class="container-fluid">
+
+                    <div class="row row_header_no_border">
+
+                        <div class="col-2 grid-single-spaced">
+                            Client Name
+                        </div>
+
+                        <div class="col-3 grid-single-spaced">
+                            Export Type
+                        </div>
+
+                        <div class="col-1 grid-single-spaced">
+                            Delimeter
+                        </div>
+
+                        <div class="col-6 grid-single-spaced">
+                        </div>
+
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+<!-- TABLE HEADER -- END -->
+<!-- TABLE DETAIL ROW -- BEGIN -->
+<table class="table table-striped table-sm">
+    <tbody id="myTable">
+
+        @foreach (CustomExports.Models.ExportConfig item in ViewBag.ExportConfigData)
+        {
+            <tr>
+                <td>
+
+                    <div class="container-fluid">
+
+                        <div class="row row_detail">
+
+                            <div class="col-2 grid-single-spaced">
+                                @item.ClientName
+                            </div>
+
+                            <div class="col-3 grid-single-spaced">
+                                @item.ExportType
+                            </div>
+
+                            <div class="col-1 grid-single-spaced">
+                                @item.Delimiter
+                            </div>
+
+                            <div class="col-6 grid-single-spaced">
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </td>
+            </tr>
+
+        }
+
+    </tbody>
+</table>
+<!-- TABLE DETAIL ROW -- END -->
